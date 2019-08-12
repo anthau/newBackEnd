@@ -5,6 +5,7 @@
  */
 package uusi;
 
+import checkpoints.Checkpoints;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -15,6 +16,7 @@ import javax.ws.rs.OPTIONS;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import test.NewEntity;
 
 /**
  * REST Web Service
@@ -61,16 +63,19 @@ public class GenericResource {
     
     @PUT
   @Consumes("application/json")
-    public String getJson2(Test1 test) {
+    public String getJson2(Checkpoints test) {
         //TODO return proper representation object
         System.out.println("Jes");
+        new NewEntity();
+        
 
-        return "Tappara=" + test.getName();
+        return "Tappa1ra=" + test.getName();
     }
     
     
        @OPTIONS
-    public String putJso2n() {
+         @Consumes("application/json")
+    public String putJso2n(Test1 test) {
         System.out.println("Jes");
         return "aa";
     }
